@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: 58cd549c4ce3ac1459173a62288a7050
+guid: ed3144462b1718f4fbe741614f5cff40
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5798108310593809561
-    second: esqueleto_anda-Sheet_0
+      213: 2396755747686247043
+    second: Skeleton_01_Yellow_Walk_0
   - first:
-      213: -8511588115256140659
-    second: esqueleto_anda-Sheet_1
+      213: -8314651336548344412
+    second: Skeleton_01_Yellow_Walk_1
   - first:
-      213: -206437014474506568
-    second: esqueleto_anda-Sheet_2
+      213: -5292331084168620755
+    second: Skeleton_01_Yellow_Walk_2
   - first:
-      213: -5230424887526700268
-    second: esqueleto_anda-Sheet_3
+      213: -3126693925460866593
+    second: Skeleton_01_Yellow_Walk_3
   - first:
-      213: -8529503024317082880
-    second: esqueleto_anda-Sheet_4
+      213: 1816591175994060654
+    second: Skeleton_01_Yellow_Walk_4
   - first:
-      213: -3947612813967683716
-    second: esqueleto_anda-Sheet_5
+      213: -4362106042154398585
+    second: Skeleton_01_Yellow_Walk_5
   - first:
-      213: -3171606970325747317
-    second: esqueleto_anda-Sheet_6
+      213: -3690519136656304431
+    second: Skeleton_01_Yellow_Walk_6
   - first:
-      213: 9016401323539191367
-    second: esqueleto_anda-Sheet_7
+      213: -2411220975314026429
+    second: Skeleton_01_Yellow_Walk_7
+  - first:
+      213: -621276919100137684
+    second: Skeleton_01_Yellow_Walk_8
+  - first:
+      213: 6630009710106920399
+    second: Skeleton_01_Yellow_Walk_9
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -72,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 42
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,17 +133,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_0
+      name: Skeleton_01_Yellow_Walk_0
       rect:
         serializedVersion: 2
-        x: 108
-        y: 599
-        width: 168
-        height: 136
+        x: 35
+        y: 0
+        width: 33
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99c2f2ee9c4077050800000000000000
-      internalID: 5798108310593809561
+      spriteID: 38ae63a67acf24120800000000000000
+      internalID: 2396755747686247043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_1
+      name: Skeleton_01_Yellow_Walk_1
       rect:
         serializedVersion: 2
-        x: 393
-        y: 599
-        width: 182
-        height: 140
+        x: 130
+        y: 0
+        width: 34
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8c98bb94b3c0e980800000000000000
-      internalID: -8511588115256140659
+      spriteID: 4ad1fcd89ac6c9c80800000000000000
+      internalID: -8314651336548344412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_2
+      name: Skeleton_01_Yellow_Walk_2
       rect:
         serializedVersion: 2
-        x: 700
-        y: 599
-        width: 175
-        height: 137
+        x: 226
+        y: 0
+        width: 35
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8be31cb01a6922df0800000000000000
-      internalID: -206437014474506568
+      spriteID: d251f5e3becdd86b0800000000000000
+      internalID: -5292331084168620755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_3
+      name: Skeleton_01_Yellow_Walk_3
       rect:
         serializedVersion: 2
-        x: 100
-        y: 299
-        width: 181
-        height: 131
+        x: 321
+        y: 0
+        width: 37
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +226,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41bcb9ad64cc967b0800000000000000
-      internalID: -5230424887526700268
+      spriteID: fd98883d070cb94d0800000000000000
+      internalID: -3126693925460866593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_4
+      name: Skeleton_01_Yellow_Walk_4
       rect:
         serializedVersion: 2
-        x: 400
-        y: 299
-        width: 184
-        height: 126
+        x: 416
+        y: 0
+        width: 38
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +247,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 003d5fcc03e11a980800000000000000
-      internalID: -8529503024317082880
+      spriteID: e6f2c33cc04d53910800000000000000
+      internalID: 1816591175994060654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_5
+      name: Skeleton_01_Yellow_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c4dc48aafa673c0800000000000000
+      internalID: -4362106042154398585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_01_Yellow_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6d1def564a8ccc0800000000000000
+      internalID: -3690519136656304431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_01_Yellow_Walk_7
       rect:
         serializedVersion: 2
         x: 705
-        y: 299
-        width: 164
-        height: 130
+        y: 0
+        width: 37
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7f0da0af034739c0800000000000000
-      internalID: -3947612813967683716
+      spriteID: 340cf635c4f998ed0800000000000000
+      internalID: -2411220975314026429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_6
+      name: Skeleton_01_Yellow_Walk_8
       rect:
         serializedVersion: 2
-        x: 110
+        x: 802
         y: 0
-        width: 162
-        height: 132
+        width: 35
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +331,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b89b49ea3403cf3d0800000000000000
-      internalID: -3171606970325747317
+      spriteID: c2f13e90fe7c067f0800000000000000
+      internalID: -621276919100137684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: esqueleto_anda-Sheet_7
+      name: Skeleton_01_Yellow_Walk_9
       rect:
         serializedVersion: 2
-        x: 410
+        x: 898
         y: 0
-        width: 153
-        height: 138
+        width: 34
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,8 +352,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7465ae99b31b02d70800000000000000
-      internalID: 9016401323539191367
+      spriteID: fc5405c34b6820c50800000000000000
+      internalID: 6630009710106920399
       vertices: []
       indices: 
       edges: []
@@ -309,14 +369,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      esqueleto_anda-Sheet_0: 5798108310593809561
-      esqueleto_anda-Sheet_1: -8511588115256140659
-      esqueleto_anda-Sheet_2: -206437014474506568
-      esqueleto_anda-Sheet_3: -5230424887526700268
-      esqueleto_anda-Sheet_4: -8529503024317082880
-      esqueleto_anda-Sheet_5: -3947612813967683716
-      esqueleto_anda-Sheet_6: -3171606970325747317
-      esqueleto_anda-Sheet_7: 9016401323539191367
+      Skeleton_01_Yellow_Walk_0: 2396755747686247043
+      Skeleton_01_Yellow_Walk_1: -8314651336548344412
+      Skeleton_01_Yellow_Walk_2: -5292331084168620755
+      Skeleton_01_Yellow_Walk_3: -3126693925460866593
+      Skeleton_01_Yellow_Walk_4: 1816591175994060654
+      Skeleton_01_Yellow_Walk_5: -4362106042154398585
+      Skeleton_01_Yellow_Walk_6: -3690519136656304431
+      Skeleton_01_Yellow_Walk_7: -2411220975314026429
+      Skeleton_01_Yellow_Walk_8: -621276919100137684
+      Skeleton_01_Yellow_Walk_9: 6630009710106920399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

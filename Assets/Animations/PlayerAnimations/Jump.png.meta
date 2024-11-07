@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 0c214d7244525784984f343bc865f925
+guid: 786e35cc9ac86a74a8b6eeca677ee770
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8926577888347654391
-    second: Jugador_walk_spritesheat_0
-  - first:
-      213: 906364678575225852
-    second: Jugador_walk_spritesheat_1
-  - first:
-      213: 3046933326376508987
-    second: Jugador_walk_spritesheat_2
+      213: 7460046300004610927
+    second: Jump_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -81,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,17 +106,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jugador_walk_spritesheat_0
+      name: Jump_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1495
-        height: 2094
+        x: 235
+        y: 189
+        width: 957
+        height: 1781
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,50 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9077e21a4bc6e1480800000000000000
-      internalID: -8926577888347654391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jugador_walk_spritesheat_1
-      rect:
-        serializedVersion: 2
-        x: 1495
-        y: 0
-        width: 1495
-        height: 2094
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cfbff6f7fdd049c00800000000000000
-      internalID: 906364678575225852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jugador_walk_spritesheat_2
-      rect:
-        serializedVersion: 2
-        x: 2990
-        y: 0
-        width: 1495
-        height: 2094
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b3e98fc87b1e84a20800000000000000
-      internalID: 3046933326376508987
+      spriteID: f63fdb7b598678760800000000000000
+      internalID: 7460046300004610927
       vertices: []
       indices: 
       edges: []
@@ -181,7 +145,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4e90e663e0aacaf4ca691b158484f7d4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -189,9 +153,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jugador_walk_spritesheat_0: -8926577888347654391
-      Jugador_walk_spritesheat_1: 906364678575225852
-      Jugador_walk_spritesheat_2: 3046933326376508987
+      Jump_0: 7460046300004610927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

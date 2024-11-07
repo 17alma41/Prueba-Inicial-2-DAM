@@ -5,7 +5,6 @@ public class Movimiento : MonoBehaviour
 {
     [Header("Jump")]
     [SerializeField] public float jumpForce = 10f;
-    [SerializeField] ParticleSystem jumpParticle;
     private bool canJump;
 
     [Header("Ground")]
@@ -91,7 +90,6 @@ public class Movimiento : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         canJump = false;
         animator.SetBool("Jump", true);
-        jumpParticle.Play();
     }
 
     private bool IsGrounded()
