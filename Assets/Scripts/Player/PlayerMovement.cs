@@ -1,108 +1,162 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class Movimiento : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    [Header("Jump")]
-    [SerializeField] public float jumpForce = 10f;
-    private bool canJump;
+    public PlayerStats stats;
+    Rigidbody2D rb;
 
     [Header("Ground")]
+    float timeWhenPressSpace;
+    int remainingJumps;
+    bool playerOnGround;
+    bool wasOnGround = false;
+
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPoint;
-    [SerializeField] LayerMask GroundLayer;
-    [SerializeField] float distanceToGround = 1f;
-    private Rigidbody2D rb;
 
-    [Header("Movement")]
-    [SerializeField] public float moveSpeed = 5f;
-    [SerializeField] public float friccion = 0.95f;
-
-    [Header("Animaci?n")]
-    private Animator animator;
-    private bool facingRight = true;  // Control para saber si el personaje est? mirando a la derecha
-
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
-        float movimientoHorizontal;
-        movimientoHorizontal = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        wasOnGround = playerOnGround;
+        playerOnGround = EstaEnSuelo();
 
-        animator.SetFloat("Horizontal", Mathf.Abs(movimientoHorizontal));
+        MovementProcess();
+        JumpProcess();
+        Gravity();
+    }
 
-        // Movimiento horizontal
-        Vector2 movementInput = Vector2.zero;
+    void MovementProcess()
+    {
+        //Movimiento de teclas del player
+        Vector2 movement = Vector2.zero;
+
         if (Input.GetKey(KeyCode.D))
-            movementInput.x = 1;
+            movement.x += 1;
 
-        else if (Input.GetKey(KeyCode.A))
-            movementInput.x = -1;
+        if (Input.GetKey(KeyCode.A))
+            movement.x -= 1;
 
-        // Chequear si est? en el suelo
-        bool isGrounded = IsGrounded();
+        if (Input.GetKey(KeyCode.RightArrow))
+            movement.x += 1;
 
-        // Si est? en el suelo, permitimos el salto
-        if (isGrounded)
+        if (Input.GetKey(KeyCode.LeftArrow))
+            movement.x -= 1;
+
+        //Aceleración y fricción del personaje
+        if (playerOnGround)
         {
-            canJump = true;
-            animator.SetBool("Jump", false);
+            if (movement != Vector2.zero)
+            {
+                rb.velocity += movement * stats.groundAcceleration * Time.deltaTime;
+            }
+            else
+            {
+                //Fricción en el suelo
+                rb.velocity = new Vector2(rb.velocity.x / Mathf.Clamp(stats.groundFriction, 1, Mathf.Infinity), rb.velocity.y);
+            }
+
+            //Máxima velocidad del personaje horizontal en el suelo
+            if (Mathf.Abs(rb.velocity.x) > stats.maxGroundHorizontalSpeed)
+            {
+                rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * stats.maxGroundHorizontalSpeed, rb.velocity.y);
+            }
+        }
+        else if (!playerOnGround)
+        {
+            if (movement != Vector2.zero)
+            {
+                rb.velocity += movement * stats.airAcceleration * Time.deltaTime;
+            }
+            else
+            {
+                //Fricción en el aire
+                rb.velocity = new Vector2(rb.velocity.x / Mathf.Clamp(stats.airFriction, 1, Mathf.Infinity), rb.velocity.y);
+            }
+
+            //Máxima velocidad del personaje horizontal en el aire
+            if (Mathf.Abs(rb.velocity.x) > stats.maxAirHorizontalSpeed)
+            {
+                rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * stats.maxAirHorizontalSpeed, rb.velocity.y);
+            }
         }
 
-        // Manejo del salto
-        if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
+        //Limitar la velocidad de caída
+        if (rb.velocity.y < -5) /////////////////////////////
         {
-            Jump();
+            rb.velocity = new Vector2(rb.velocity.x, -stats.maxFallSpeed);
+        }
+    }
+
+    bool EstaEnSuelo()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(
+            groundCheckPoint.position,
+            groundCheckPoint.localScale,
+            0f,
+            Vector2.down,
+            0.2f,
+            groundLayer
+        );
+
+
+        return raycastHit.collider != null;
+    }
+
+    void JumpProcess()
+    {
+        if (EstaEnSuelo())
+        {
+            remainingJumps = stats.onAirJump;
         }
 
-        // Movimiento horizontal con Rigidbody
-        if (movementInput.x != 0)
+        if (Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0)
         {
-            Move(movementInput.x);
+            float initialJumpForce = 3;
+            rb.velocity = new Vector2(rb.velocity.x, initialJumpForce);
+
+            remainingJumps--;
+
+            timeWhenPressSpace = 0.0f;
+        }
+
+        if (Input.GetKey(KeyCode.Space) && remainingJumps > 0)
+        {
+            timeWhenPressSpace += Time.deltaTime;
+
+            //Limitar salto cuando presiona el espacio
+            if (stats.maxJumpPressTime >= timeWhenPressSpace)
+            {
+                //Le doy una fuerza al salto
+                rb.velocity = new Vector2(rb.velocity.x, stats.jumpStregth);
+            }
+        }
+    }
+
+    void Gravity()
+    {
+        //Las partículas son para comprobar la función de gravedad que está realizando el personaje 
+
+        if (rb.velocity.y > stats.yVelocityLowGravityThreshold)
+        {
+            rb.gravityScale = stats.defaultGravity;
+            //particleColor.startColor = Color.white;
+        }
+        else if (rb.velocity.y < stats.yVelocityLowGravityThreshold && rb.velocity.y > -stats.yVelocityLowGravityThreshold)
+        {
+            rb.gravityScale = stats.lowGravity;
+            //particleColor.startColor = Color.yellow;
         }
         else
         {
-            // Aplicamos fricci?n para reducir la velocidad cuando no hay input
-            rb.velocity = new Vector2(rb.velocity.x * friccion, rb.velocity.y);
+            rb.gravityScale = stats.fallingGravity;
+            //particleColor.startColor = Color.green;
         }
-
-        // Controlar la direcci?n en la que mira el personaje
-        if (movementInput.x > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (movementInput.x < 0 && facingRight)
-        {
-            Flip();
-        }
-    }
-
-    private void Move(float direction)
-    {
-        rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
-    }
-
-    private void Jump()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        canJump = false;
-        animator.SetBool("Jump", true);
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.Raycast(groundCheckPoint.position, Vector2.down, distanceToGround, GroundLayer);
-    }
-
-    // M?todo para invertir la direcci?n del personaje
-    private void Flip()
-    {
-        facingRight = !facingRight;  // Cambiamos la direcci?n
-        Vector3 scaler = transform.localScale;
-        scaler.x *= -1;  // Invertimos el eje X
-        transform.localScale = scaler;
     }
 }
