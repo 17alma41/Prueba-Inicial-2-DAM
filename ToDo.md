@@ -2,21 +2,24 @@
 ## Player
 
 ### Salto
-- **Añadir fuerza de caida** para que cuando el personaje salta se note más realista.
+- **Añadir fuerza de caida** para que cuando el personaje salta se note más realista **✓**
 ### Colliders
 
 - **Problemas:**
-    - **Se queda pegado con los colliders** de las paredes cuando pulso las teclas de hacia delante o hacia atrás.
+    - **Se queda pegado con los colliders** de las paredes cuando pulso las teclas de hacia delante o hacia atrás **✓**
 
 - **Posibles soluciones:** 
     1. Capsula player.
     2. Lanzar un `raycast` en frente del player y si ve que tiene un `collider` cerca no se le aplica el movimiento al jugador.
 
 ### Ataque
- - **Knockback** con impactos que le causan daños al enemigo, para sentir peso del ataque.
+ - **Knockback** con impactos que le causan daños al enemigo, para sentir peso del ataque -- En proceso
 
 ### Partículas
 - Sustituir partículas.
+
+### Animación
+- Implementar las animaciones del personaje.
 
 ## Enemies
 
