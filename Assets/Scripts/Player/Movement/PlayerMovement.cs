@@ -159,4 +159,7 @@ public class PlayerMovement : MonoBehaviour
             //particleColor.startColor = Color.green;
         }
     }
+
+    // Aplicar knockback
+    // recibir knockbak y aplicarlo en el movimiento
 }

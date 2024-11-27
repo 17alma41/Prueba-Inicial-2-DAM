@@ -97,4 +97,7 @@ public class EnemyMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
+
+    // Notificar el ataque
+    // detectar cuándo ataca al jugador y envia la informacion necesaria para aplicar el knockback
 }

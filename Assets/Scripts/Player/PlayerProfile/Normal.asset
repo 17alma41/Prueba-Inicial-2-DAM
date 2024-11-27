@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33477a6b309d5a54f8a376ecc4e2dc40, type: 3}
   m_Name: Normal
   m_EditorClassIdentifier: 
-  groundAcceleration: 30
-  maxGroundHorizontalSpeed: 15
+  groundAcceleration: 15
+  maxGroundHorizontalSpeed: 10
   groundFriction: 1.8
   onAirJump: 1
   jumpStregth: 15
   maxJumpPressTime: 0.2
-  airAcceleration: 10
-  maxAirHorizontalSpeed: 10
+  airAcceleration: 7
+  maxAirHorizontalSpeed: 7
   airFriction: 2
   maxFallSpeed: 10
   yVelocityLowGravityThreshold: 2
-  defaultGravity: 3
-  lowGravity: 4
-  fallingGravity: 8
+  defaultGravity: 3.3
+  lowGravity: 2
+  fallingGravity: 10
