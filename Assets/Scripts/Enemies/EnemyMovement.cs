@@ -100,4 +100,9 @@ public class EnemyMovement : MonoBehaviour
 
     // Notificar el ataque
     // detectar cuándo ataca al jugador y envia la informacion necesaria para aplicar el knockback
+
+    public void Knockback()
+    {
+
+    }
 }

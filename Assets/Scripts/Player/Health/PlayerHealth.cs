@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private PlayerMovement PlayerMovement;
+
     [Header("Health Settings")]
     public int maxHealth = 3;  // Vida máxima del jugador
     private int currentHealth;
@@ -20,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
     public ParticleSystem damageParticles;  // Partículas de daño
     public ParticleSystem healParticles;    // Partículas de curación
 
+    [SerializeField] float knockbackForce = 30f;
+
     private void Start()
     {
         currentHealth = maxHealth;  // Inicializar la salud
@@ -29,6 +33,8 @@ public class PlayerHealth : MonoBehaviour
 
         // Obtener el componente AudioSource
         audioSource = GetComponent<AudioSource>();
+
+        PlayerMovement = GetComponent<PlayerMovement>();
     }
 
     // Llamado cuando el jugador recibe daño
@@ -94,8 +100,24 @@ public class PlayerHealth : MonoBehaviour
     // Si el jugador colisiona con un enemigo, toma daño
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            print(collision.contactCount); // Contador de puntos de contactos
+            Vector3 contactPoint = collision.contacts[0].point; // TODO: Cojer el punto del enemigo
+
+            // calcular el vector que va el punto de contacto hacia el centro del pj
+            // el vector de A a B es B - A
+            Vector3 knockbackDirection = transform.position - contactPoint;
+
+            print("Contactpoint: " + contactPoint + "pos jugador: " + transform.position + "vector normalizado: " + knockbackDirection);
+            knockbackDirection.Normalize();
+
+            print("Contactpoint: " + contactPoint + "pos jugador: " + transform.position + "vector normalizado: " + knockbackDirection);
+          
+            // enviarle al movement ese vector como información de colisión
+            PlayerMovement.Knockback(knockbackDirection, knockbackForce);
+
             TakeDamage(1);  // Recibe 1 de daño por cada colisión
         }
     }

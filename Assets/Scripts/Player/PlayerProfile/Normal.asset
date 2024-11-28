@@ -18,9 +18,9 @@ MonoBehaviour:
   onAirJump: 1
   jumpStregth: 15
   maxJumpPressTime: 0.2
-  airAcceleration: 7
-  maxAirHorizontalSpeed: 7
-  airFriction: 2
+  airAcceleration: 30
+  maxAirHorizontalSpeed: 10
+  airFriction: 5
   maxFallSpeed: 10
   yVelocityLowGravityThreshold: 2
   defaultGravity: 3.3

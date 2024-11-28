@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     bool playerOnGround;
     bool wasOnGround = false;
 
+
+
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPoint;
 
@@ -162,4 +164,19 @@ public class PlayerMovement : MonoBehaviour
 
     // Aplicar knockback
     // recibir knockbak y aplicarlo en el movimiento
+    public void Knockback(Vector3 knockbackDirection, float knockbackForce)
+    {
+        if (rb != null)
+        {
+            rb.velocity = knockbackDirection * knockbackForce;
+        }
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //        Knockback();
+    //    }
+    //}
 }
