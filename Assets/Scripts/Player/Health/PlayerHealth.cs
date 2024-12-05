@@ -103,18 +103,21 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            GetComponent<Collider2D>().enabled = false;
+            
             print(collision.contactCount); // Contador de puntos de contactos
             Vector3 contactPoint = collision.contacts[0].point; // TODO: Cojer el punto del enemigo
+            Vector3 enemyPosition = collision.transform.position;
 
             // calcular el vector que va el punto de contacto hacia el centro del pj
             // el vector de A a B es B - A
-            Vector3 knockbackDirection = transform.position - contactPoint;
+            Vector3 knockbackDirection = transform.position - enemyPosition;
 
-            print("Contactpoint: " + contactPoint + "pos jugador: " + transform.position + "vector normalizado: " + knockbackDirection);
             knockbackDirection.Normalize();
 
-            print("Contactpoint: " + contactPoint + "pos jugador: " + transform.position + "vector normalizado: " + knockbackDirection);
-          
+            Debug.Log("Contactpoint: " + enemyPosition);
+            Debug.Log("Knockback direction: " + knockbackDirection);
+
             // enviarle al movement ese vector como información de colisión
             PlayerMovement.Knockback(knockbackDirection, knockbackForce);
 
